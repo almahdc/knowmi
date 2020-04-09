@@ -1,6 +1,13 @@
 export {
   authSuccess,
   authFail,
-  auth,
-  authStart
+  authSignUp,
+  authLogin,
+  authStart,
+  logout,
+  checkAuthState
 } from './authActions'
+
+export {
+  getData,
+} from './test'

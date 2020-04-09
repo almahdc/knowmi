@@ -1,0 +1,12 @@
+@import "src/_vars.scss";
+
+.WelcomeFocus {
+  color: $focus-color-light;
+}
+
+.WelcomeImage {
+  height: 210px;
+  width: 95%;
+  overflow: hidden;
+  margin-top: 20px;
+}

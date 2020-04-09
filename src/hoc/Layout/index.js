@@ -1,19 +1,40 @@
-import React, { Component } from 'react';
+import React, {Component} from "react";
+
+import * as constants from "../../utility/UIconst";
 
 // Components
-import Menu from '../../components/Navigation/Menu'
+import Menu from "../../components/Navigation/Menu";
+
+// Style
+import {Box, Grid} from "@material-ui/core";
+
+// Redux
+import {connect} from "react-redux";
 
 class Layout extends Component {
-    render () {
-        return (
-            <>
-                <Menu />
-                <main>
-                    {this.props.children}
-                </main>
-            </>
-        )
-    }
+  render() {
+    const {type, topLeft, topRight, bottom} = this.props;
+    return (
+      <>
+        <Menu isUserAuthenticated={this.props.isUserAuthenticated} />
+        {type === constants.LAYOUT_LEFT_RIGHT_BOTTOM ? (
+          <Grid container>
+            <Grid item>{topLeft}</Grid>
+            <Grid item>{topRight}</Grid>
+            <Grid item>{bottom}</Grid>
+          </Grid>
+        ) : (
+          this.props.children
+        )}
+      </>
+    );
+  }
 }
 
-export default Layout;
+const mapStateToProps = state => {
+  return {
+    isUserAuthenticated: state.authReducer.token !== null
+  };
+};
+
+export default connect(mapStateToProps)(Layout);

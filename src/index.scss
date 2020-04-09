@@ -1,0 +1,35 @@
+@import "_vars.scss";
+
+$colors-light: ('primary': $primary-color-light, 'secundary': $secondary-color-light, 'focus': $focus-color-light, 'info': $info-color-light, 'warning': $warning-color-light, 'baby': $baby-color-light);
+
+@each $color, $hex in $colors-light {
+  .text-color-#{$color} {
+    color: $hex;
+  }
+  .background-color-#{$color} {
+    color: $hex
+  }
+}
+
+.Testing {
+  color: red($primary-color-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $primary-font-header;
+  color: $primary-color-light;
+}
+
+body {
+  font-family:  $primary-font-body;
+  background-color: $baby-color-light;
+  color: $primary-color-light;
+}
+
+a {
+  color: $primary-color-light;
+}
+
+a.active {
+  color: $focus-color-light;
+}

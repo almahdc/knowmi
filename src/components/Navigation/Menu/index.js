@@ -13,7 +13,7 @@ import MenuItem from "./MenuItem";
 import MenuToggle from "./MenuToggle";
 
 // Data
-import menuItemsData from "./MenuItemsConfig";
+import menuItemsData from "./menuItemsConfig";
 
 export default function Menu(props) {
   const [drawer, setDrawer] = React.useState(false);

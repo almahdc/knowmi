@@ -4,7 +4,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 // Style
-import "./index.scss";
+import "./style/index.scss";
 
 // Store
 import store from "./store";

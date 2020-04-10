@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import * as constants from "../../utility/UIconst";
+import * as constants from "../../constants/uiConstants";
 
 // Components
 import Menu from "../../components/Navigation/Menu";

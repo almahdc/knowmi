@@ -1,5 +1,6 @@
 import React from "react";
 
+import {Link} from "react-router-dom";
 // Style
 import {
   CardContent,
@@ -8,17 +9,23 @@ import {
   Button,
   Paper
 } from "@material-ui/core";
+import classes from "./CardDescription.module.scss";
 
 const cardDescription = props => {
   return (
-    <Paper variant="outlined" elevation={0}>
+    <Paper variant="outlined" elevation={0} className={classes.CardDescription}>
       <CardContent>
         <Typography color="textSecondary" gutterBottom>
-          {props.interestHeader}
+          {props.projectInfo.title}
+        </Typography>
+        <Typography color="textSecondary" gutterBottom>
+          {props.projectInfo.summary}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Link to={props.projectInfo.continueRelativeLink} size="small">
+          {props.projectInfo.continueText}
+        </Link>
       </CardActions>
     </Paper>
   );

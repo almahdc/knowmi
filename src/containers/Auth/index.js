@@ -5,7 +5,7 @@ import Spinner from "../../components/UI/Spinner";
 import Presentable from "../../components/UI/Presentable";
 
 // Style
-import {Button, Container, TextField, Grid} from "@material-ui/core";
+import {Button, Container, TextField} from "@material-ui/core";
 
 // Store
 import {authSignUp, authLogin} from "../../store/actions";
@@ -19,77 +19,123 @@ import {Redirect} from "react-router-dom";
 
 class Auth extends Component {
   state = {
-    email: "",
-    password: ""
+    loginData: {
+      email: {
+        value: "",
+        placeholder: "Your email",
+        valid: false,
+        isTouched: false,
+        validationRules: {
+          email: true,
+          required: true
+        }
+      },
+      password: {
+        value: "",
+        placeholder: "Password",
+        valid: false,
+        isTouched: false,
+        validationRules: {
+          required: true
+        }
+      }
+    }
   };
 
-  onChangeEmailHandler = event => {
+  checkValidity(value, rules) {
+    let isValid = true;
+    if (rules.required) {
+      isValid = value.length > 0 && isValid;
+    }
+    if (rules.email && isValid) {
+      isValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        value
+      );
+    }
+    return isValid;
+  }
+
+  onChangeInputHandler = event => {
+    const updatedForm = {...this.state.loginData};
+    const updatedElement = {...updatedForm[event.target.type]};
+    updatedElement.value = event.target.value;
+    updatedElement.isValid = this.checkValidity(
+      event.target.value,
+      updatedElement.validationRules
+    );
+    updatedElement.isTouched = true;
+    updatedForm[event.target.type] = updatedElement;
     this.setState({
-      email: event.target.value
+      loginData: updatedForm
     });
   };
 
-  onChangePasswordHandler = event => {
-    this.setState({
-      password: event.target.value
-    });
+  submitForm = () => {
+    if (
+      this.state.loginData.email.isValid &&
+      this.state.loginData.password.isValid
+    ) {
+      this.props.onAuthLogin(
+        this.state.loginData.email.value,
+        this.state.loginData.password.value
+      );
+    }
   };
 
   render() {
     const userAuthenticated = this.props.isUserAuthenticated ? (
       <Redirect to="/" />
     ) : null;
-
     const signUpForm = (
-      <form>
+      <form validate>
         {userAuthenticated}
         {this.props.loading ? (
           <Spinner />
         ) : (
           <>
             <TextField
-              id="outlined-basic"
+              error={
+                !this.state.loginData.email.isValid &&
+                this.state.loginData.email.isTouched
+              }
+              required
+              id="outlined-basic-input"
               type="email"
-              placeholder="Your email"
+              label={this.state.loginData.email.placeholder}
               margin="normal"
+              autoComplete="current-email"
               variant="outlined"
               fullWidth={true}
-              onChange={this.onChangeEmailHandler}
-              value={this.state.email}
+              onChange={this.onChangeInputHandler}
+              value={this.state.loginData.email.value}
             />
             <TextField
-              id="outlined-basic"
-              placeholder="Your password"
+              error={
+                !this.state.loginData.password.isValid &&
+                this.state.loginData.password.isTouched
+              }
+              required
+              id="outlined-password-input"
+              type="password"
+              label={this.state.loginData.password.placeholder}
               margin="normal"
+              autoComplete="current-password"
               variant="outlined"
               fullWidth={true}
-              type="password"
-              onChange={this.onChangePasswordHandler}
-              value={this.state.password}
+              onChange={this.onChangeInputHandler}
+              value={this.state.loginData.password.value}
             />
-            <Grid container justify="space-between">
-              <Button
-                onClick={() =>
-                  this.props.onAuthSignUp(this.state.email, this.state.password)
-                }
-              >
-                Sing up
-              </Button>
-              <Button
-                onClick={() =>
-                  this.props.onAuthLogin(this.state.email, this.state.password)
-                }
-              >
-                Log in instead?
-              </Button>
-            </Grid>
+            <Button onClick={this.submitForm}>Login</Button>
+            {this.props.error ? (
+              <p style={{color: "red"}}>Login unsuccessful</p>
+            ) : null}
           </>
         )}
       </form>
     );
 
     return (
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" style={{height: "80vh"}}>
         <Presentable image={PinkFlamingo}>{signUpForm}</Presentable>
       </Container>
     );
@@ -101,7 +147,7 @@ class Auth extends Component {
 const mapStateToProps = state => {
   return {
     loading: state.authReducer.loading,
-    error: state.authReducer.errorAuth,
+    error: state.authReducer.authError,
     isUserAuthenticated: state.authReducer.token !== null
   };
 };

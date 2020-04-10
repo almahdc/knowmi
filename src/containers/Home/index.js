@@ -2,9 +2,9 @@ import React, {Component} from "react";
 
 // Components
 import CardDescription from "../../components/UI/CardDescription";
-import SkillsList from "../../components/UI/SkillsList";
+
 import ProjectsPresenter from "../../components/ProjectsPresenter";
-import ContactMe from "../../components/UI/ContactMe";
+import AboutMe from "../../components/AboutMe";
 import Welcome from "../../components/Welcome";
 
 // Style
@@ -31,25 +31,9 @@ class Home extends Component {
             <Grid item md={9} className={classes.FullWindowHeight}>
               <Welcome />
             </Grid>
-
             <Grid item md={3}>
-              <SkillsList
-                skills={[
-                  "REACT",
-                  "GRAPHQL",
-                  "GO",
-                  "CSS/SCSS",
-                  "JAVASCRIPT",
-                  "OBJECTIVE-C",
-                  "SWIFT",
-                  "JAVA"
-                ]}
-                header="My skills"
-              />
-              <div style={{height: "30px"}}></div>
-              <ContactMe header="Where to find me?" />
+              <AboutMe />
             </Grid>
-
             <Grid item className={classes.FullWindowHeight} id="myprojects">
               <ProjectsPresenter
                 projectsInfo={[

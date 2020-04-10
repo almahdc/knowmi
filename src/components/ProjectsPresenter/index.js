@@ -7,18 +7,44 @@ import {Grid} from "@material-ui/core";
 import CardDescription from "../UI/CardDescription";
 import SimpleTitleContent from "../SimpleTitleContent";
 
+// Redux
+import {connect} from "react-redux";
+import * as actions from "../../store/actions";
+
 // TODO: Better UI, shortSummary prop, route path
 
-const projectsPresenter = props => {
-  return (
-    <SimpleTitleContent header={props.header}>
-      {props.projectsInfo.map(projectInfo => (
-        <Grid item key={projectInfo.title}>
-          <CardDescription interestHeader={projectInfo.title} />
-        </Grid>
-      ))}
-    </SimpleTitleContent>
-  );
+class ProjectsPresenter extends Component {
+  componentDidMount() {
+    this.props.onFetchProjectsList();
+  }
+
+  render() {
+    return (
+      <SimpleTitleContent header={this.props.header}>
+        {Object.keys(this.props.myProjects).map((keyName, i) => {
+          return (
+            <Grid item key={i}>
+              <CardDescription projectInfo={this.props.myProjects[keyName]} />
+            </Grid>
+          );
+        })}
+      </SimpleTitleContent>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    myProjects: state.infoReducer.retrivedData,
+    loading: state.infoReducer.loading,
+    error: state.infoReducer.error
+  };
 };
 
-export default projectsPresenter;
+const mapDispatchToProps = dispatch => {
+  return {
+    onFetchProjectsList: () => dispatch(actions.projectsFetch())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectsPresenter);

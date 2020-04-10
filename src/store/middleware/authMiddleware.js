@@ -43,7 +43,6 @@ const auth = ({dispatch, getState}) => next => action => {
       dispatch(trackTokenTimeout(expiresInSeconds));
     })
     .catch(error => {
-      // fail
       dispatch(authFail(error));
     });
 };

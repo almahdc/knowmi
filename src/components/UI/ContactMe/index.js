@@ -9,7 +9,7 @@ import SimpleTitleContent from "../../SimpleTitleContent";
 import ContactMeItem from "./ContactMeItem";
 
 // Data
-import {contactMeData} from "./ContactMeData";
+import {contactMeData} from "./contactMeData";
 
 export default function ContactMe(props) {
   const [state, setState] = React.useState({
@@ -21,13 +21,10 @@ export default function ContactMe(props) {
   const {vertical, horizontal, open} = state;
 
   const handleClick = newState => e => {
-    console.log("haloo");
     setState({open: true, ...newState});
   };
 
-  const test = () => {
-    console.log("halalala");
-  };
+  const test = () => {};
 
   const handleClose = () => {
     setState({...state, open: false});

@@ -6,6 +6,30 @@ const menuItems = [
     isPrivate: true
   },
   {
+    name: "PROJECTS",
+    path: {pathName: "/myprojects", hash: "#myprojects"},
+    isPublic: true,
+    isPrivate: true
+  },
+  {
+    name: "MY BLOG",
+    path: {pathName: "/myblog"},
+    isPublic: false,
+    isPrivate: false
+  },
+  {
+    name: "TODO LIST",
+    path: {pathName: "/todolist"},
+    isPublic: true,
+    isPrivate: true
+  },
+  {
+    name: "MAP",
+    path: {pathName: "/todolist"},
+    isPublic: false,
+    isPrivate: false
+  },
+  {
     name: "LOGOUT",
     path: {pathName: "/logout"},
     isPublic: false,
@@ -16,12 +40,6 @@ const menuItems = [
     path: {pathName: "/auth"},
     isPublic: true,
     isPrivate: false
-  },
-  {
-    name: "MY PROJECTS",
-    path: {pathName: "/myprojects", hash: "#myprojects"},
-    isPublic: false,
-    isPrivate: true
   }
 ];
 

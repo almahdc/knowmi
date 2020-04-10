@@ -6,8 +6,11 @@ export {
   authStart,
   logout,
   checkAuthState
-} from './authActions'
+} from "./authActions";
 
 export {
-  getData,
-} from './test'
+  projectsFetch,
+  dataFetchSuccess,
+  dataFetchFail,
+  dataFetchStart
+} from "./infoActions";

@@ -1,12 +1,12 @@
 @import "./_vars.scss";
 
-$colors-light: ('primary': $primary-color-light, 'secundary': $secondary-color-light, 'focus': $focus-color-light, 'info': $info-color-light, 'warning': $warning-color-light, 'baby': $baby-color-light);
+$colors-light: ('Primary': $primary-color-light, 'Secundary': $secondary-color-light, 'Focus': $focus-color-light, 'Info': $info-color-light, 'Warning': $warning-color-light, 'Baby': $baby-color-light);
 
 @each $color, $hex in $colors-light {
-  .text-color-#{$color} {
+  .textColor#{$color} {
     color: $hex;
   }
-  .background-color-#{$color} {
+  .backgroundColor#{$color} {
     color: $hex
   }
 }
@@ -24,6 +24,7 @@ body {
   font-family:  $primary-font-body;
   background-color: $baby-color-light;
   color: $primary-color-light;
+  margin: 0;
 }
 
 a {

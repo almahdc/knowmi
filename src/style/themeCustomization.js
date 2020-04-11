@@ -21,6 +21,18 @@ const themeGlobal = createMuiTheme({
       fontFamily: ["Nanum Gothic"]
     },
     fontFamily: ["Nanum Gothic Coding"]
+  },
+  palette: {
+    primary: {
+      main: "#2f3131",
+      submain: "#919191",
+      info: "#426e86",
+      warning: "#db0000",
+      bone: "ffffff",
+      baby: "FFFEFC",
+      light: "f9f8f4",
+      focus: "f9ba32"
+    }
   }
 });
 

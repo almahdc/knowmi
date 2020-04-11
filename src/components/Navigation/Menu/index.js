@@ -45,7 +45,7 @@ export default function Menu(props) {
     ));
 
   return (
-    <Box display="flex" flexDirection="row-reverse">
+    <Box display="flex" flexDirection="row-reverse" marginBottom="40px">
       <Toolbar>
         <MenuToggle clicked={toggleDrawer(true)} />
         <div className={classes.Menu}>{menuItems}</div>

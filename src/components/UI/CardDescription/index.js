@@ -15,7 +15,7 @@ const cardDescription = props => {
   return (
     <Paper variant="outlined" elevation={0} className={classes.CardDescription}>
       <CardContent>
-        <Typography color="textSecondary" gutterBottom>
+        <Typography color="focus" gutterBottom>
           {props.projectInfo.title}
         </Typography>
         <Typography color="textSecondary" gutterBottom>

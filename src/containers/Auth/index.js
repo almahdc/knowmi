@@ -6,6 +6,7 @@ import Presentable from "../../components/UI/Presentable";
 
 // Style
 import {Button, Container, TextField} from "@material-ui/core";
+import classes from "./Auth.module.scss";
 
 // Store
 import {authSignUp, authLogin} from "../../store/actions";
@@ -135,7 +136,7 @@ class Auth extends Component {
     );
 
     return (
-      <Container maxWidth="lg" style={{height: "80vh"}}>
+      <Container maxWidth="lg" className={classes.ItemsHeight}>
         <Presentable image={PinkFlamingo}>{signUpForm}</Presentable>
       </Container>
     );

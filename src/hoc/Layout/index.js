@@ -6,7 +6,7 @@ import * as constants from "../../constants/uiConstants";
 import Menu from "../../components/Navigation/Menu";
 
 // Style
-import {Box, Grid} from "@material-ui/core";
+import {Box, Grid, Container} from "@material-ui/core";
 
 // Redux
 import {connect} from "react-redux";
@@ -15,18 +15,30 @@ class Layout extends Component {
   render() {
     const {type, topLeft, topRight, bottom} = this.props;
     return (
-      <>
-        <Menu isUserAuthenticated={this.props.isUserAuthenticated} />
-        {type === constants.LAYOUT_LEFT_RIGHT_BOTTOM ? (
-          <Grid container>
-            <Grid item>{topLeft}</Grid>
-            <Grid item>{topRight}</Grid>
-            <Grid item>{bottom}</Grid>
+      <Container maxWidth="lg">
+        <Grid container direction="column">
+          <Grid item>
+            <Menu isUserAuthenticated={this.props.isUserAuthenticated} />
           </Grid>
-        ) : (
-          this.props.children
-        )}
-      </>
+          <Grid item container spacing={2}>
+            {type === constants.LAYOUT_LEFT_RIGHT_NEW_WINDOW_PAGE_BOTTOM ? (
+              <>
+                <Grid item xs={0} sm={2} />
+                <Grid item xs={12} sm={9}>
+                  {topLeft}
+                </Grid>
+                <Grid item xs={12} sm={3}>
+                  {topRight}
+                </Grid>
+                <Grid item>{bottom}</Grid>
+                <Grid item xs={0} sm={2} />
+              </>
+            ) : (
+              this.props.children
+            )}
+          </Grid>
+        </Grid>
+      </Container>
     );
   }
 }

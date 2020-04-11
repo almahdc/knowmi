@@ -11,7 +11,7 @@ import Home from "./containers/Home";
 
 // Style
 import {ThemeProvider} from "@material-ui/core/styles";
-import themeGlobal from "./themeCustomization";
+import themeGlobal from "./style/themeCustomization";
 
 // Redux
 import {connect} from "react-redux";

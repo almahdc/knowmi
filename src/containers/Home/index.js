@@ -26,26 +26,34 @@ class Home extends Component {
   render() {
     return (
       <>
-        <Box m={2}>
-          <Grid container>
-            <Grid item md={9} className={classes.FullWindowHeight}>
-              <Welcome />
-            </Grid>
-            <Grid item md={3}>
-              <AboutMe />
-            </Grid>
-            <Grid item className={classes.FullWindowHeight} id="myprojects">
-              <ProjectsPresenter
-                projectsInfo={[
-                  {title: "Simple TODO list"},
-                  {title: "Project 2"},
-                  {title: "Project 3"}
-                ]}
-                header="My projects"
-              />
-            </Grid>
+        <Grid item container className={classes.FullWindowHeight}>
+          <Grid item xs={0} sm={1} />
+          <Grid item xs={12} sm={10} md={8}>
+            <Welcome />
           </Grid>
-        </Box>
+          <Grid item spacing={0} xs={12} md={2}>
+            <AboutMe />
+          </Grid>
+          <Grid item xs={0} md={1} />
+        </Grid>
+        <Grid item xs={0} md={1} />
+        <Grid
+          item
+          className={classes.FullWindowHeight}
+          id="myprojects"
+          xs={12}
+          md={10}
+        >
+          <ProjectsPresenter
+            projectsInfo={[
+              {title: "Simple TODO list"},
+              {title: "Project 2"},
+              {title: "Project 3"}
+            ]}
+            header="My projects"
+          />
+        </Grid>
+        <Grid item xs={0} md={1} />
       </>
     );
   }

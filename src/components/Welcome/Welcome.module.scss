@@ -5,8 +5,19 @@
 }
 
 .WelcomeImage {
-  height: 210px;
-  width: 95%;
+  width: 100%;
   overflow: hidden;
   margin-top: 20px;
+}
+
+@media (min-width: 960px) {
+  .Padding {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 960px) {
+  .Padding {
+    padding-bottom: 20px;
+  }
 }

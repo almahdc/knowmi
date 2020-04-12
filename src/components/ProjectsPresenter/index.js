@@ -11,8 +11,6 @@ import SimpleTitleContent from "../SimpleTitleContent";
 import {connect} from "react-redux";
 import * as actions from "../../store/actions";
 
-// TODO: Better UI, shortSummary prop, route path
-
 class ProjectsPresenter extends Component {
   componentDidMount() {
     this.props.onFetchProjectsList();

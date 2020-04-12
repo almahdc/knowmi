@@ -1,9 +1,8 @@
-import React, {Component} from "react";
+import React from "react";
 
 // Components
 import SkillsList from "../UI/SkillsList";
 import ContactMe from "../UI/ContactMe";
-import ClearSeparator from "../UI/Separator";
 
 // Style
 import {Grid} from "@material-ui/core";

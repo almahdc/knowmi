@@ -6,8 +6,6 @@ import React from "react";
 import {Box, Toolbar, Drawer} from "@material-ui/core";
 import classes from "./Menu.module.scss";
 
-import {NavHashLink as NavLink} from "react-router-hash-link";
-
 // Components
 import MenuItem from "./MenuItem";
 import MenuToggle from "./MenuToggle";

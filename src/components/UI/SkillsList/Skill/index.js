@@ -1,7 +1,7 @@
 import React from "react";
 
 // Style
-import {Box, Grid, Paper} from "@material-ui/core";
+import {Paper} from "@material-ui/core";
 import classes from "./Skill.module.scss";
 
 const skill = props => {

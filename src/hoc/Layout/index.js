@@ -6,7 +6,7 @@ import * as constants from "../../constants/uiConstants";
 import Menu from "../../components/Navigation/Menu";
 
 // Style
-import {Box, Grid, Container} from "@material-ui/core";
+import {Grid, Container} from "@material-ui/core";
 
 // Redux
 import {connect} from "react-redux";

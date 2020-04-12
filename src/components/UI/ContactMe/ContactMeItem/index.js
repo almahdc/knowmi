@@ -8,12 +8,7 @@ const contactMeItem = props => {
   return (
     <>
       {props.isLink ? (
-        <a
-          href={props.link}
-          color="#f9ba32"
-          target="_blank"
-          className={classes.Item}
-        >
+        <a href={props.link} color="#f9ba32" className={classes.Item}>
           {props.socialMedia}
         </a>
       ) : (

@@ -1,11 +1,11 @@
-import React, {Component} from "react";
+import React from "react";
 
 // Style
 import {Typography, Grid} from "@material-ui/core";
 import classes from "./Welcome.module.scss";
 
 // Assets
-import patternImage from "../../assets/images/pattern.png";
+//import patternImage from "../../assets/images/pattern.png";
 import pattern2Image from "../../assets/images/pattern2.png";
 
 const welcome = props => {

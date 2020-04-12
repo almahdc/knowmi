@@ -1,9 +1,7 @@
-import React, {Component} from "react";
+import React from "react";
 
 // Style
 import {Grid, Box} from "@material-ui/core";
-
-// TODO: Better UI, shortSummary prop, route path
 
 const simpleTitleContent = props => {
   return (

@@ -2,7 +2,6 @@ import React from "react";
 
 // Style
 import {ButtonGroup, Snackbar} from "@material-ui/core";
-import classes from "./ContactMe.module.scss";
 
 // Components
 import SimpleTitleContent from "../../SimpleTitleContent";
@@ -23,8 +22,6 @@ export default function ContactMe(props) {
   const handleClick = newState => e => {
     setState({open: true, ...newState});
   };
-
-  const test = () => {};
 
   const handleClose = () => {
     setState({...state, open: false});
